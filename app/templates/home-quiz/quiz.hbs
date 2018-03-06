@@ -1,0 +1,11 @@
+
+<div id="box">
+  <div id="question">{{model.question}}</div>
+</div>
+<div class="Mari">
+  {{#each model.option as |options|}}
+  <div class="opt" {{action "answer" options}}>{{options}}
+  </div>
+  <!-- <input type="checkbox" class="check" onchange={{!--action "checkanswer" event--}} checked={{!--ischecked--}} value="{{!--value--}}"/>{{!--options--}}</div> -->
+{{/each}}
+</div>
