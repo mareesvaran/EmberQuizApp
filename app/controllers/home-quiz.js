@@ -19,7 +19,7 @@ export default Controller.extend({
       },1000)
   }
   else{
-    timecount = 16;
+    timecount = 17;
   }
   },
   actions:{
