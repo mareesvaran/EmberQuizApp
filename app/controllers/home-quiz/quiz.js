@@ -32,9 +32,11 @@ export default Controller.extend({
       this.transitionToRoute('home-quiz.quiz',idchange);
   },
   prev(){
-    idchange = this.model.id;
-    idchange--;
-    this.transitionToRoute('home-quiz.quiz',idchange);
+    if(idchange != undefined){
+      idchange = this.model.id;
+      idchange--;
+      this.transitionToRoute('home-quiz.quiz',idchange);
+    }
   },
   next(){
     if(idchange != 0){
