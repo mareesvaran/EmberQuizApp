@@ -8,7 +8,12 @@ import Route from '@ember/routing/route';
     return this.store.peekRecord('question',data['quiz_id']);
   }
   else{
-      alert("Game Over")
+    this.transitionTo('result');
   }
-  }
+}
+,
+setupController(controller, model) {
+  this._super(controller, model);
+  this.controllerFor('home-quiz').set('optinc', model);
+}
 });

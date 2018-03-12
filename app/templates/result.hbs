@@ -1,0 +1,27 @@
+<div class="us">
+  <span class="participant">Participant : </span>
+  {{pfname}}
+</div>
+<div class="res">
+  <div class="h1re">
+    The Result of <span class="tharam">தரமான வினாடி வினா</span>
+  </div>
+  <div class="score detail" id="resscore">The Total Score is {{score}}
+  </div>
+  <div class="resskip detail">
+    Skipped Questions are {{skip}}
+  </div>
+  <div class="reswrong detail">
+    The Wrong Questions are {{wronganswer}}
+  </div>
+</div>
+<div class="pa">
+  <div class="playagain ps" {{action "playagain"}}>PLAY AGAIN</div>
+  <div class="signout ps" {{action "signout"}}>SIGNOUT</div>
+</div>
+<div class="body">
+  <div class="result">
+    <span id="go">The Game Over</span> <br>
+    <span id="blg">Better Luck Next Time</span>
+  </div>
+</div>

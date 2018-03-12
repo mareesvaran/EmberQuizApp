@@ -8,7 +8,6 @@ export default Controller.extend({
     timeevent--;
   },
   cbstate:false,
-  // ischecked:boolean = false,
   actions:{
     checkanswer (e){
     console.log(e.target.ischecked);
@@ -24,16 +23,25 @@ export default Controller.extend({
       var ques = this.store.peekRecord('question',idchange).get("option");
       var ans = this.store.peekRecord('question',idchange).get("answer");
       var answer = event.target.innerText;
-      var checking = event.target.innerHTML;
-      if(ans == answer){
-        alert("Answer is correct");
+      var checking = event.target.innerHTML; 
+      this.store.peekRecord('question',idchange).set("check",answer);
         idchange++;
-        this.transitionToRoute('home-quiz.quiz',idchange);
+      if(ans == answer){
+        score+=10;
       }
-      else{
-        alert("Answer is Wrong")
-      }
-
+      this.transitionToRoute('home-quiz.quiz',idchange);
+  },
+  prev(){
+    idchange = this.model.id;
+    idchange--;
+    this.transitionToRoute('home-quiz.quiz',idchange);
+  },
+  next(){
+    if(idchange != 0){
+    idchange = this.model.id;
+    idchange++;
+    this.transitionToRoute('home-quiz.quiz',idchange);
+    }
   }
   }
 });

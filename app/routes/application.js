@@ -9,7 +9,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-  		question:'The motion of the cam is transferred to the valves through',
+  		question:'1. The motion of the cam is transferred to the valves through',
   		option:["pistons","rockerarms","camshaft pulley","valve stems"],
   		answer:"rockerarms"
       }
@@ -19,7 +19,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'The torque available at the contact between driving wheels and road is known as',
+      question:'2. The torque available at the contact between driving wheels and road is known as',
       option:["brakeeffort","tractiveeffort","clutcheffort","noneofthese"],
       answer:'tractiveeffort'
       }
@@ -29,7 +29,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'The petrol engines are also known as',
+      question:'3. The petrol engines are also known as',
       option:["spark ignition engines","compression ignition","steam engines","none of these"],
       answer:'spark ignition engines'
       }
@@ -39,7 +39,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'If the air-fuel mixture ignites before the spark takes place at spark plug, the condition is called',
+      question:'4. If the air-fuel mixture ignites before the spark takes place at spark plug, the condition is called',
       option:["detonation","signition","pre-ignition","self-ignition"],
       answer:'pre-ignition'
     }
@@ -49,7 +49,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'A cycle consisting of one constant pressure, one constant volume and two isentropic processes is known as',
+      question:'5. A cycle consisting of one constant pressure, one constant volume and two isentropic processes is known as',
       option:["Carnot cycle","Stirling cycle","Otto cycle","Diesel cycle"],
       answer:'Diesel cycle'
       }
@@ -59,7 +59,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'The efficiency and work ratio of a simple gas turbine cycle are',
+      question:'6. The efficiency and work ratio of a simple gas turbine cycle are',
       option:["low","very low","high","very high"],
       answer:'very low'
       }
@@ -69,7 +69,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'Fixed position layout is also known as',
+      question:'7. Fixed position layout is also known as',
       option:["analytical layout","synthetic layout","static product layout","none of these"],
       answer:'static product layout'
       }
@@ -79,7 +79,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'The chart which gives an estimate about the amount of materials handling between various work stations is known as',
+      question:'8. The chart which gives an estimate about the amount of materials handling between various work stations is known as',
       option:["flow chart","process chart","travel chart","operation chart"],
       answer:'travel chart'
       }
@@ -89,7 +89,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'A series of operations, which takes place in a certain order and restore the initial conditions at the end, is known as',
+      question:'9. A series of operations, which takes place in a certain order and restore the initial conditions at the end, is known as',
       option:["reversible cycle","irreversible cycle","thermodynamic cycle","non of these"],
       answer:'thermodynamic cycle'
       }
@@ -99,7 +99,7 @@ export default Route.extend({
     type:'question',
     attributes:
       {
-      question:'An isothermal process is governed by',
+      question:'10. An isothermal process is governed by',
       option:["Boyles law","Charleslaw","Gay-Lussac law","Avogadros law"    ],
       answer:'Boyles law'
       }

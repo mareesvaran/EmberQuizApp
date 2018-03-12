@@ -11,8 +11,8 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
-    console.log(this._super(model)+" SET UP Controller");
-    controller.set('title', 'Create a new library');
+    controller.set('timercount',16 );
     controller.set('buttonLabel', 'Create');
+    this.controllerFor('home-quiz').set('sadu', model);
   }
 });
