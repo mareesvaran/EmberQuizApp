@@ -3,9 +3,9 @@
   தரமான வினாடி வினா
 </div></h1>
 <div class="bottom">
-    <input type="text" class="pf" id="mail" placeholder="Enter the Email Id ..."><br>
-      <input type="password" class="pf" id="password" placeholder="Enter the Password..."><br>
-      <input type="password" class="pf" id="cpassword" placeholder="Enter the Confirm Password..."><br>
+    {{input type="text" class="pf" id="mail" placeholder="Enter the User name..." valueBinding="mail"}}<br>
+    {{input type="password" class="pf" id="password" placeholder="Enter the Password..." valueBinding="password"}}<br>
+    {{input type="password" class="pf" id="cpassword" placeholder="Enter the Confirm Password..." valueBinding="cpassword"}}<br>
     <button class="register pro" {{action "register"}}> REGISTER </button>
 </div>
 <div class="frz">

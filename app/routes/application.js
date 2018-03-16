@@ -1,7 +1,19 @@
 import Route from '@ember/routing/route';
-
+import cookielogin from 'quiz/utils/cookielogin';
 export default Route.extend({
     model(){
+      var optarray = ["pistons","rockerarms","camshaft pulley","valve stems",
+                      "brakeeffort","tractiveeffort","clutcheffort","noneofthese",
+                      "spark ignition engines","compression ignition","steam engines","none of these",
+                      "detonation","signition","pre-ignition","self-ignition",
+                      "Carnot cycle","Stirling cycle","Otto cycle","Diesel cycle",
+                      "low","very low","high","very high",
+                      "analytical layout","synthetic layout","static product layout","none of these",
+                      "flow chart","process chart","travel chart","operation chart",
+                      "reversible cycle","irreversible cycle","thermodynamic cycle","non of these",
+                      "Boyles law","Charleslaw","Gay-Lussac law","Avogadros law"
+    ];
+      var ansidarray = [2,6,9,15,20,22,27,31,35,37]
    this.get('store').push({
   data:[
     {
@@ -100,41 +112,89 @@ export default Route.extend({
     attributes:
       {
       question:'10. An isothermal process is governed by',
-      option:["Boyles law","Charleslaw","Gay-Lussac law","Avogadros law"    ],
+      option:["Boyles law","Charleslaw","Gay-Lussac law","Avogadros law"],
       answer:'Boyles law'
       }
-    },
-    {
-    id:1,
-    type:'register',
-    attributes:
-      {
-      username:'Sudalaimani',
-      password:"mani9344"
-      }
-    },
-    {
-    id:2,
-    type:'register',
-    attributes:
-      {
-      username:'Mareesvaran',
-      password:"fast9344"
-      }
-    },
-    {
-    id:3,
-    type:'register',
-    attributes:
-      {
-      username:'Karthika',
-      password:"love9344"
-      }
-     }
+    }
 ]
 
 });
-// return this.get('store').peekRecord('question',1);
 
+var ans = [];
+var ques = [];
+var opt = [];
+for(var i = 1 ; i <= 10 ; i++ ){
+    var  a  = this.store.peekRecord("question",i).get("answer");
+      ans.push(a);
+    var b = this.store.peekRecord("question",i).get("question");
+      ques.push(b);
+  }
+
+var opt= 0;
+for (var i = 0; i < ans.length; i++) {
+  var a = [];
+  for (var j = 1; j <=4 ; j++) {
+    opt++;
+    a.push({
+      id:opt,
+      type:"quizoption"
+    })
+
+  }
+  this.get('store').push({
+    data:[{
+      id:i+1,
+      type:"quizquestion",
+      attributes:{
+        questions:ques[i],
+        ccanswer:ansidarray[i]
+      },
+      relationships:{
+        options:{
+          data:a,
+        canswer:{
+          id:ansidarray[i],
+          type:"quizoption"
+        }
+      }
     }
+    }]
+  });
+}
+var cans=-1;
+  var count = 0;
+for (var i = 0; i < ansidarray.length; i++) {
+      count++;
+  for (var j = 0; j < 4; j++) {
+      cans++;
+    this.get('store').push({
+      data:[{
+        id:cans+1,
+        type:"quizoption",
+        attributes:{
+          option:optarray[cans]
+        },
+        relationships:{
+          questions:{
+            data:{
+              id:count,
+              type:"quizquestion"
+            }
+          }
+        }
+      }]
+    });
+  }
+}
+},
+beforeModel(){
+  var gc = cookielogin("login");
+  if(gc == null){
+    this.transitionTo("login");
+  }
+  else{
+    this.transitionTo("home-quiz")
+  }
+}
+
 })

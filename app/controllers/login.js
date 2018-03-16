@@ -1,52 +1,25 @@
 import Controller from '@ember/controller';
 import Ember from 'ember';
-var loginjson = [
-
-];
+import cookielogin from 'quiz/utils/cookielogin';
 export default Controller.extend({
-   getCookie: function(name) {
-    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-    return v ? v[2] : null;
-},
   actions:{
     register(){
-      if($("#mail").val() != "" && $("#password").val() != "" && $("#cpassword").val() != ""){
-        if($("#password").val() == $("#cpassword").val()){
-          var name = $("#mail").val(); 
-          var password = $("#password").val();
-          var user = {
+      if(this.get("mail") != undefined && this.get("password") != undefined && this.get("cpassword") != undefined){
+        if(this.get("password") == this.get("cpassword")){
+          let name = this.get("mail");
+          let password = this.get("password");
+          let user = {
             username:name,
             password:password
-          }
-          loginjson.push(user);
-          var str = JSON.stringify(user);
+          };
+          let str = JSON.stringify(user);
         document.cookie = "login="+str+"";
-          var gc = this.getCookie("login");
-          var gcp = JSON.parse(gc);
-      var name = $("#mail").val();
-      var password = $("#password").val();
-      var ml = this.get('model.length');
-        this.store.push({
-        data:[
-          {
-          id:ml+1,
-          type:'register',
-          attributes:
-            {
-            username:name,
-            password:password
-            }
-           }
-        ]});
-
+          let gc = cookielogin("login");
+          let gcp = JSON.parse(gc);
+          let ml = this.get('model.length');
         document.location.reload(true);
           this.transitionToRoute('home-quiz');
-      // this.transitionToRoute('register');
-       // document.getElementById("para").innerHTML = "";
         }
-      }
-      else{
-        // alert(" Please fill the Blank spaces !!...");
       }
     }
   }

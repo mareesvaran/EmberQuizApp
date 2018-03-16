@@ -2,18 +2,16 @@ import Route from '@ember/routing/route';
 
  export default Route.extend({
   model(data){
-    var qd = data['quiz_id'];
+    let qd = data['quiz_id'];
     if(data['quiz_id'] <= 10){
-    // this.store.peekRecord('question',i)
-    return this.store.peekRecord('question',data['quiz_id']);
+    return this.store.peekRecord('quizquestion',data['quiz_id']);
   }
   else{
     this.transitionTo('result');
   }
-}
-,
+},
 setupController(controller, model) {
-  this._super(controller, model);
   this.controllerFor('home-quiz').set('optinc', model);
+  return this._super.apply(this,arguments);
 }
 });

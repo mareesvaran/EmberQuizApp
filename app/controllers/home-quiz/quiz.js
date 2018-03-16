@@ -1,49 +1,30 @@
 import Controller from '@ember/controller';
 import Ember from 'ember';
-var idchange;
-var score = 0;
-var timeevent = 10;
+var idchange=0;
 export default Controller.extend({
-  timer:function(){
-    timeevent--;
-  },
-  cbstate:false,
   actions:{
-    checkanswer (e){
-    console.log(e.target.ischecked);
-    if(e.target.checked){
-      alert("checked")
-    }
-    else {
-      alert("Un_Checked")
-    }
-  },
-    answer(){
-      idchange = this.model.id;
-      var ques = this.store.peekRecord('question',idchange).get("option");
-      var ans = this.store.peekRecord('question',idchange).get("answer");
-      var answer = event.target.innerText;
-      var checking = event.target.innerHTML; 
-      this.store.peekRecord('question',idchange).set("check",answer);
+    answer(option){
+      idchange = parseInt(this.model.id);
+      var anss=option.get('id');
+      let ques = this.store.peekRecord('question',idchange).get("option");
+      let ans = this.store.peekRecord('question',idchange).get("answer");
+      let answer = event.target.innerText;
+      let checking = event.target.innerHTML; 
+      this.store.peekRecord('quizquestion',idchange).set("check",anss);
         idchange++;
-      if(ans == answer){
-        score+=10;
-      }
       this.transitionToRoute('home-quiz.quiz',idchange);
   },
-  prev(){
-    if(idchange != undefined && idchange != 1){
-      idchange = this.model.id;
+    prev(){
+    if(idchange != undefined && idchange != 0 && idchange != 1){
+      idchange = parseInt(this.model.id);
       idchange--;
       this.transitionToRoute('home-quiz.quiz',idchange);
     }
   },
   next(){
-    if(idchange != 0){
-    idchange = this.model.id;
+    idchange = parseInt(this.model.id);
     idchange++;
     this.transitionToRoute('home-quiz.quiz',idchange);
-    }
   }
   }
 });

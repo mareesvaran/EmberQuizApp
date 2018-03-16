@@ -1,13 +1,12 @@
-
 <div id="box">
-  <div id="question">{{model.question}}</div>
+  <div id="question">{{model.questions}}</div>
 </div>
 <div class="Mari">
-  {{#each model.option as |options|}}
-  <div class="opt {{if (eq options model.check) 'copt'}}" {{action "answer" options}}>{{options}}
+  {{#each model.options as |option|}}
+  <div class="opt {{if (eq option.id model.check) 'copt'}}" {{action "answer" option}} name={{option.id}}>{{option.data.option }}
   </div>
   <!-- <input type="checkbox" class="check" onchange={{!--action "checkanswer" event--}} checked={{!--ischecked--}} value="{{!--value--}}"/>{{!--options--}}</div> -->
 {{/each}}
 <button  name="button" class="prev pn" {{action "prev"}}> PREV </button>
-<button  name="button" class="next pn" {{action "next"}}> NEXT </button>
+<button  name="button" class="next pn" {{action "next"}}> SKIP </button>
 </div>

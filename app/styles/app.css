@@ -82,9 +82,11 @@ font-weight: lighter;
     font-size: 14px;
   }
   .pro{
+    width:200px;
     margin-top: 30px;
     height: 30px;
     background-color: #4967AD;
+    font-size: 14px;
     color:white;
     border-radius: 5px;
     outline: none;
@@ -99,12 +101,13 @@ font-weight: lighter;
     /* border: 2px solid black; */
   }
   .login{
-    width:200px;
-    margin-left: 650px;
+    margin:auto;
+    text-align: center;
+    padding-top: 4px;
+    margin-top: 30px;
   }
   .register{
-    width:200px;
-    margin-left:750px;;
+    margin-left:750px;
   }
   .middlediv{
     width:1000px;
@@ -199,18 +202,20 @@ font-weight: lighter;
 }
 .prev{
   float: left;
-  margin-left: 200px;
+  margin-left: 300px;
 }
 .next{
   float: right;
-  margin-right: 200px;
+  margin-right: 300px;
 }
 .pn{
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 50px;
   border-radius: 5px;
   background-color: #729C5A;
   color: white;
+  margin-top: 50px;
+  outline: none;
 }
 .pn:hover{
   background-color: white;
